@@ -1,0 +1,270 @@
+:root {
+    /* Paleta solicitada */
+    --bg-deep-blue: #0A0E17; /* Azul escuro bem fechado */
+    --logo-gray: #D1D5DB; /* Cinza claro */
+    --volt-orange: #FF5500; /* Laranja vivo */
+    --text-main: #F3F4F6;
+    --text-muted: #9CA3AF;
+    --card-bg: rgba(16, 24, 39, 0.6);
+    --card-border: rgba(255, 255, 255, 0.05);
+    
+    --font-global: 'Plus Jakarta Sans', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-global);
+}
+
+body {
+    background-color: var(--bg-deep-blue);
+    color: var(--text-main);
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Efeito de Fundo */
+#ambient-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.app-wrapper {
+    position: relative;
+    z-index: 2;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 24px;
+}
+
+/* Identidade do Logotipo */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+.logo-container {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    user-select: none;
+}
+
+.logo-v { color: var(--logo-gray); }
+.logo-o { color: var(--volt-orange); }
+.logo-rest { color: #ffffff; }
+
+/* Botões CTA (Call to Action) */
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    font-weight: 700;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+.cta-button.outline {
+    background: transparent;
+    color: var(--text-main);
+    border: 1px solid var(--card-border);
+}
+
+.cta-button.outline:hover {
+    border-color: var(--volt-orange);
+    color: var(--volt-orange);
+}
+
+.cta-button.solid {
+    background: var(--volt-orange);
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 4px 15px rgba(255, 85, 0, 0.3);
+}
+
+.cta-button.solid:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 85, 0, 0.5);
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    max-width: 850px;
+    margin: 0 auto 80px auto;
+}
+
+.badge-marketing {
+    display: inline-block;
+    padding: 6px 14px;
+    background: rgba(255, 85, 0, 0.1);
+    color: var(--volt-orange);
+    border: 1px solid rgba(255, 85, 0, 0.2);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 24px;
+}
+
+.main-headline {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    font-weight: 800;
+    margin-bottom: 24px;
+}
+
+.highlight-orange {
+    color: var(--volt-orange);
+}
+
+.sub-headline {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Divisor */
+.divider-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 85, 0, 0.5), transparent);
+    margin: 60px 0;
+}
+
+/* Grid de Marketing (Regras Comerciais) */
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: var(--text-muted);
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 60px;
+}
+
+.feature-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    padding: 35px 25px;
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.highlight-card {
+    border-color: rgba(255, 85, 0, 0.3);
+    position: relative;
+    box-shadow: 0 0 30px rgba(255, 85, 0, 0.05);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.05);
+    margin-bottom: -15px;
+}
+
+.feature-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: var(--logo-gray);
+}
+
+.highlight-card h3 {
+    color: var(--volt-orange);
+}
+
+.feature-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.feature-card p strong {
+    color: #fff;
+}
+
+/* Escopo e Scripts */
+.scope-box {
+    background: linear-gradient(145deg, var(--card-bg), rgba(255, 85, 0, 0.03));
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 40px;
+    max-width: 800px;
+    margin: 0 auto 80px auto;
+}
+
+.scope-box h3 {
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    color: #fff;
+}
+
+.scope-list {
+    list-style: none;
+}
+
+.scope-list li {
+    color: var(--text-muted);
+    margin-bottom: 15px;
+    padding-left: 24px;
+    position: relative;
+    line-height: 1.5;
+}
+
+.scope-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--volt-orange);
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--card-border);
+    padding-top: 30px;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+    .cards-container { grid-template-columns: 1fr; }
+    .main-headline { font-size: 2.5rem; }
+    .main-header { flex-direction: column; gap: 20px; }
+}
