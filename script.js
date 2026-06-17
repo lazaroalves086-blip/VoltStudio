@@ -18,7 +18,7 @@ class AmbientParticle {
         this.speedX = (Math.random() - 0.5) * 0.4;
         this.speedY = (Math.random() - 0.5) * 0.4;
         
-        // Mistura de partículas cinzas/azuis e raras laranjas para combinar com a logo
+        // Mistura de partículas cinzas/azuis sutis e algumas laranjas para remeter à marca
         const isOrange = Math.random() > 0.85;
         this.color = isOrange ? 'rgba(255, 85, 0, 0.4)' : 'rgba(209, 213, 219, 0.15)';
     }
@@ -27,7 +27,7 @@ class AmbientParticle {
         this.x += this.speedX;
         this.y += this.speedY;
         
-        // Rebater nas bordas
+        // Rebater nas bordas suavemente
         if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
         if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
     }
@@ -42,7 +42,7 @@ class AmbientParticle {
 
 function init() {
     particles = [];
-    // Densidade baseada no tamanho da tela
+    // Calcula a quantidade de partículas com base no tamanho da tela para não pesar em celulares
     let quantity = (canvas.width * canvas.height) / 12000; 
     for(let i = 0; i < quantity; i++) {
         particles.push(new AmbientParticle());
